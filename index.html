@@ -1,19 +1,163 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8">
 		<title></title>
-		<script>
-			function color(str) {
-				document.body.style.backgroundColor = str;
+		<style>
+			table{
+				border-collapse:collapse ;
+				border: 1px solid #000;
+				width: 600px;
 			}
-		</script>
+			td{
+				border: 1px solid #000;
+				height: 60px;
+				width: 60px;
+				text-align: center;
+				vertical-align: auto;
+			}
+			
+		</style>
 	</head>
 	<body>
-		<input type="button" value="设为红" onclick="color('red')" >
-		<input type="button" value="设为黄" onclick="color('yellow')" >
-		<input type="button" value="设为蓝" onclick="color('blue')" >
-		<input type="button" value="设为自定义" onclick="color('#00ff00')" >
-		
+		<table id="dataTable">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+		</table>
+		<script type="text/javascript">
+		var oTable = document.getElementById("dataTable");
+		var oTd = oTable.getElementsByTagName("td");
+		var c=0;
+		function runColor(){
+			c += 1;
+		for(i in oTd){
+			if(!isNaN(i)){
+			oTd[i].innerHTML=i;
+			oTd[i].style.backgroundColor="hsl("+i/10*20+",50%,50%)";
+		}
+		}
+		}
+		runColor();
+		setInterval(runColor,100);
+		</script>
 	</body>
 </html>
