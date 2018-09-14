@@ -1,163 +1,92 @@
 
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<style>
-			table{
-				border-collapse:collapse ;
-				border: 1px solid #000;
-				width: 600px;
+		<style type="text/css">
+			.guessNumber{
+				width: 300px;
+				height: 300px;
+				margin: auto;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				
 			}
-			td{
-				border: 1px solid #000;
-				height: 60px;
-				width: 60px;
+			.guessNumber h2{
 				text-align: center;
-				vertical-align: auto;
 			}
-			
+			.guessNumber.guessC{
+				width: 252px;
+				margin: auto;
+			}
+			.guessNumber #nubIput{
+				border: none;
+				outline: none;
+				border: 1px solid #000;
+				width: 186px;
+   	 			height: 30px;
+   	 			border-radius: 20px 0 0 20px;
+   	 			text-indent: 15px;
+			}
+			.guessNumber.tip{
+				height: 250px;
+				width: 200px;
+				margin: auto;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+			}
+			#tipText{
+				color: blueviolet;
+				text-align: center;
+			}
 		</style>
 	</head>
+
 	<body>
-		<table id="dataTable">
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-		</table>
-		<script type="text/javascript">
-		var oTable = document.getElementById("dataTable");
-		var oTd = oTable.getElementsByTagName("td");
-		var c=0;
-		function runColor(){
-			c += 1;
-		for(i in oTd){
-			if(!isNaN(i)){
-			oTd[i].innerHTML=i;
-			oTd[i].style.backgroundColor="hsl("+i/10*20+",50%,50%)";
-		}
-		}
-		}
-		runColor();
-		setInterval(runColor,100);
-		</script>
+		<div class="guessNumber">
+			<h2 class="title">猜数字游戏</h2>
+			<div class="guessC">
+				<input type="number" id="nubIput" placeholder="0-10整数，6次机会" />
+				<input type="button" onclick="guess()" id="butIput" value="提交" />
+			</div>
+			<div class="tip">
+				<p>剩余次数：6</p>
+				<p>猜测历史：</p>
+				<p id="tipText"> </p>
+				<script type="text/javascript">
+					var changeNum =parseInt(Math.random()*11);
+					console.log(changeNum);
+					var guessTimes =6;
+					var oNumInput =document.getElementById("nubIput");
+					var oBtnGuess =document.getElementById("butIput");
+					var oTipText =document.getElementById("tipText");
+					function guess(){
+						if (oNumInput.value>changeNum) {
+							oTipText.innerHTML += "</br>你输入的数"+oNumInput.value+",有点大，可以再小一点";
+							
+						} 
+						if(oNumInput.value==changeNum){
+							oTipText.innerHTML += "</br>恭喜你猜对了";
+							
+						}
+						if(oNumInput.value<changeNum){
+							oTipText.innerHTML += "</br>你输入的数"+oNumInput.value+",有点小，可以再大一点";
+							
+						}
+						oNumInput.value="";
+						oNumInput.focus();
+					}
+				</script>
+			</div>
+		</div>
 	</body>
+
 </html>
